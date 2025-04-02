@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace DbMigration;
 
@@ -16,7 +15,16 @@ public partial class AppDbContext : DbContext
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=localhost;Database=apiDev;User Id=apideveloper;Password=SecureDev;Encrypt=True;TrustServerCertificate=True");
+    {
+        var configuration = new ConfigurationBuilder()
+            .SetBasePath(AppContext.BaseDirectory)
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .Build();
+
+        var connectionString = configuration.GetSection("SqlDatabase")["ConnectionString"];
+        optionsBuilder.UseSqlServer(connectionString);
+    }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

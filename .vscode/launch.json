@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        },
+    {
+        "name": "C#: DBMigration Debug",
+        "type": "dotnet",
+        "request": "launch",
+        "projectPath": "${workspaceFolder}/v1/DbMigration/DbMigration.csproj"
+    }
+    ]
+}
