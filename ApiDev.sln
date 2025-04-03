@@ -9,8 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
+		EndGlobalSection
+	EndProject
 	EndGlobalSection
 EndGlobal
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbMigrations", "DbMigration/DbMigration.csproj", "{B1A1A1A1-A1A1-A1A1-A1A1-B1B1B1B1B1B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductCatalogApi", "ProductCatalogApi/ProductCatalogApi.csproj", "{C2C2C2C2-C2C2-C2C2-C2C2-C2C2C2C2C2C2}"
 EndProject
