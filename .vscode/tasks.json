@@ -1,20 +1,16 @@
 {
 	"version": "2.0.0",
 	"tasks": [
-		{
-            "label": "Build ProductCatalogApi",
-            "type": "shell",
+        {
+            "label": "build",
             "command": "dotnet",
+            "type": "process",
             "args": [
-				"build",
-                "${workspaceFolder}/v1/ProductCatalogApi/ProductCatalogApi.csproj",
-				"/property:GenerateFullPaths=true",
+                "build",
+                "${workspaceFolder}/ApiDev.sln",
+                "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true,
-            },
             "problemMatcher": "$msCompile"
         },
         {
@@ -23,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/v1/ApiDev.sln",
+                "${workspaceFolder}/ApiDev.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -37,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/v1/ApiDev.sln"
+                "${workspaceFolder}/ApiDev.sln"
             ],
             "problemMatcher": "$msCompile"
         }

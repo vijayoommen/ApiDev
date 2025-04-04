@@ -1,8 +1,7 @@
 using ProductCatalogApi;
 using ProductCatalogApi.DataAccess;
-using ProductCatalogApi.DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using ProductCatalogApi.Services;
 internal class Program
 {
     private static void Main(string[] args)
@@ -19,9 +18,12 @@ internal class Program
 
         // Add services to the container.
         builder.Services.AddSingleton<IConfiguration>(configuration);
-        builder.Services.AddDbContext<ProductCatalogDbContext>(options =>
+        builder.Services.AddDbContext<IProductCatalogDbContext, ProductCatalogDbContext>(options =>
             options.UseSqlServer(configuration.GetSection("SqlServerSettings:ConnectionString").Value));
         builder.Services.AddSingleton<IAppSettings, AppSettings>();
+        builder.Services.AddScoped<IProductCatalogRepo, ProductCatalogRepo>();
+        builder.Services.AddScoped<ProductCatalogApi.Services.IProductsService, ProductsService>();
+        
 
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

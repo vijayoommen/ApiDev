@@ -38,4 +38,11 @@ public class WeatherForecastController : ControllerBase
         })
         .ToArray();
     }
+
+    [HttpGet("test")]
+    public async Task<IActionResult> Test()
+    {
+        var results = await _dbContext.ProductCategories.ToListAsync();
+        return Ok(results);
+    }
 }
