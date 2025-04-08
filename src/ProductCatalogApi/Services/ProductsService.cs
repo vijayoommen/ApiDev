@@ -1,5 +1,5 @@
-﻿using ProductCatalogApi.DataAccess;
-using ProductCatalogApi.DataAccess.Entities;
+﻿using ProductCatalogApi.DataAccess.Entities;
+using ProductCatalogApi.DataAccess.Repos;
 
 namespace ProductCatalogApi.Services;
 

@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProductCatalogApi.DataAccess;
 using ProductCatalogApi.DataAccess.Entities;
 
-namespace ProductCatalogApi;
+namespace ProductCatalogApi.DataAccess.Repos;
 
 public interface IProductCatalogRepo
 {

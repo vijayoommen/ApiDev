@@ -2,6 +2,7 @@ using ProductCatalogApi;
 using ProductCatalogApi.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using ProductCatalogApi.Services;
+using ProductCatalogApi.DataAccess.Repos;
 internal class Program
 {
     private static void Main(string[] args)
