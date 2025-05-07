@@ -3,6 +3,8 @@ using ProductCatalogApi.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using ProductCatalogApi.Services;
 using Scalar.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using ProductCatalogApi.Infrastructure;
 internal class Program
 {
     private static void Main(string[] args)
@@ -16,6 +18,9 @@ internal class Program
             .AddEnvironmentVariables();
 
         var configuration = configurationBuilder.Build();
+
+        // Add authentication and authorization services
+        JwtAuthentication.SetupAuthentication(builder.Services, configuration);
 
         // Add services to the container.
         builder.Services.AddSingleton<IConfiguration>(configuration);
@@ -48,6 +53,7 @@ internal class Program
 
         app.UseHttpsRedirection();
 
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.MapControllers();
