@@ -11,6 +11,18 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        builder.Logging.ClearProviders();
+        builder.Logging.AddConsole();
+        builder.Logging.AddJsonConsole(options =>
+        {
+            options.IncludeScopes = true;
+            options.TimestampFormat = "yyyy-MM-dd HH:mm:ss ";
+            options.JsonWriterOptions = new System.Text.Json.JsonWriterOptions
+            {
+                Indented = true
+            };
+        });
+
         var configurationBuilder = builder.Configuration
             .SetBasePath(AppContext.BaseDirectory)
             .AddJsonFile("appsettings.Development.json", optional: true, reloadOnChange: true)

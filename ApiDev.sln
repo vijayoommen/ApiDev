@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbMigration", "src\DbMigrat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductCatalogApi", "src\ProductCatalogApi\ProductCatalogApi.csproj", "{29B3721F-E596-492D-9EE6-5C4C8139BC26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiKey", "src\ApiKey\ApiKey.csproj", "{EBB29909-D1D4-4FD4-AEE5-DE5E821B1ED5}"
+EndProject
 Global
-	GlobalSection(SolutionProperties) = preSolution
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
@@ -45,9 +45,25 @@ Global
 		{29B3721F-E596-492D-9EE6-5C4C8139BC26}.Release|x64.Build.0 = Release|Any CPU
 		{29B3721F-E596-492D-9EE6-5C4C8139BC26}.Release|x86.ActiveCfg = Release|Any CPU
 		{29B3721F-E596-492D-9EE6-5C4C8139BC26}.Release|x86.Build.0 = Release|Any CPU
+		{EBB29909-D1D4-4FD4-AEE5-DE5E821B1ED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBB29909-D1D4-4FD4-AEE5-DE5E821B1ED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBB29909-D1D4-4FD4-AEE5-DE5E821B1ED5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EBB29909-D1D4-4FD4-AEE5-DE5E821B1ED5}.Debug|x64.Build.0 = Debug|Any CPU
+		{EBB29909-D1D4-4FD4-AEE5-DE5E821B1ED5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EBB29909-D1D4-4FD4-AEE5-DE5E821B1ED5}.Debug|x86.Build.0 = Debug|Any CPU
+		{EBB29909-D1D4-4FD4-AEE5-DE5E821B1ED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBB29909-D1D4-4FD4-AEE5-DE5E821B1ED5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBB29909-D1D4-4FD4-AEE5-DE5E821B1ED5}.Release|x64.ActiveCfg = Release|Any CPU
+		{EBB29909-D1D4-4FD4-AEE5-DE5E821B1ED5}.Release|x64.Build.0 = Release|Any CPU
+		{EBB29909-D1D4-4FD4-AEE5-DE5E821B1ED5}.Release|x86.ActiveCfg = Release|Any CPU
+		{EBB29909-D1D4-4FD4-AEE5-DE5E821B1ED5}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F1006D6B-1085-4632-9195-BC237F84C851} = {156E3E16-88CD-4ED2-8A2E-11A826747A6C}
 		{29B3721F-E596-492D-9EE6-5C4C8139BC26} = {156E3E16-88CD-4ED2-8A2E-11A826747A6C}
+		{EBB29909-D1D4-4FD4-AEE5-DE5E821B1ED5} = {156E3E16-88CD-4ED2-8A2E-11A826747A6C}
 	EndGlobalSection
 EndGlobal
