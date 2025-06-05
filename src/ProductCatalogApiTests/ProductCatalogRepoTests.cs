@@ -63,6 +63,7 @@ public class ProductCatalogRepoTests
         // setup our DB
         var connection = new SqliteConnection("DataSource=:memory:");
         connection.Open();
+
         var options = new DbContextOptionsBuilder<ProductCatalogDbContext>()
             .UseSqlite(connection)
             .Options;
@@ -96,6 +97,7 @@ public class ProductCatalogRepoTests
             .With(p => p.Description, "Test Description")
             .With(p => p.ImageUrl, "http://example.com/image.jpg")
             .With(p => p.Price, 9.99m)
+            .With(p => p.CategoryId, categories[0].Id)
             .With(p => p.IsActive, true)
             .With(p => p.CreatedOn, DateTime.UtcNow)
             .With(p => p.UpdatedOn, DateTime.UtcNow)
