@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductCatalogApi.DataAccess;
@@ -25,7 +26,8 @@ public class WeatherForecastController : ControllerBase
         _dbContext = dbContext;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
+    [HttpGet]
+    [AllowAnonymous]
     public async Task<IEnumerable<WeatherForecast>> Get()
     {
         var results = await _dbContext.ProductCategories.ToListAsync();
@@ -39,6 +41,7 @@ public class WeatherForecastController : ControllerBase
         .ToArray();
     }
 
+    [Authorize(Policy = "AdminUsersPolicy")]
     [HttpGet("test")]
     public async Task<IActionResult> Test()
     {

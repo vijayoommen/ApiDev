@@ -3,6 +3,9 @@ using ProductCatalogApi.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using ProductCatalogApi.Services;
 using ProductCatalogApi.DataAccess.Repos;
+using Scalar.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using ProductCatalogApi.Infrastructure;
 internal class Program
 {
     private static void Main(string[] args)
@@ -17,6 +20,9 @@ internal class Program
 
         var configuration = configurationBuilder.Build();
 
+        // Add authentication and authorization services
+        JwtAuthentication.SetupAuthentication(builder.Services, configuration);
+
         // Add services to the container.
         builder.Services.AddSingleton<IConfiguration>(configuration);
         builder.Services.AddDbContext<IProductCatalogDbContext, ProductCatalogDbContext>(options =>
@@ -29,19 +35,26 @@ internal class Program
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+        // builder.Services.AddSwaggerGen();
+
+        builder.Services.AddOpenApi();
 
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
-            app.UseSwagger();
-            app.UseSwaggerUI();
+            // Use scalar instead of swagger
+            // app.UseSwagger();
+            // app.UseSwaggerUI();
+
+            app.MapOpenApi();
+            app.MapScalarApiReference();
         }
 
         app.UseHttpsRedirection();
 
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.MapControllers();

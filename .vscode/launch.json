@@ -13,7 +13,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/src/ProductCatalogApi/bin/Debug/net8.0/ProductCatalogApi.dll",
+            "program": "${workspaceFolder}/src/ProductCatalogApi/bin/Debug/net9.0/ProductCatalogApi.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/ProductCatalogApi",
             "stopAtEntry": false,
@@ -21,7 +21,7 @@
             "serverReadyAction": {
                 "action": "openExternally",
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
-                "uriFormat": "%s/swagger"
+                "uriFormat": "%s/scalar"
             },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development"

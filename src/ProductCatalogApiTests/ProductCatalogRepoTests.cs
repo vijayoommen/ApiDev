@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using ProductCatalogApi.DataAccess;
 using ProductCatalogApi.DataAccess.Entities;
 using ProductCatalogApi.DataAccess.Repos;
-using Xunit;
 
 namespace ProductCatalogApiTests;
 
