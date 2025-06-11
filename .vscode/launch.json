@@ -74,11 +74,11 @@
             "cwd": "${workspaceFolder}/src/ShoppingSite",
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
-            "serverReadyAction": {
-                "action": "openExternally",
-                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
-                "uriFormat": "%s/scalar"
-            },
+            // "serverReadyAction": {
+            //     "action": "openExternally",
+            //     "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+            //     "uriFormat": "%s/scalar"
+            // },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
             },
@@ -100,11 +100,11 @@
             "cwd": "${workspaceFolder}/src/SalesOrders",
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
-            "serverReadyAction": {
-                "action": "openExternally",
-                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
-                "uriFormat": "%s/scalar"
-            },
+            // "serverReadyAction": {
+            //     "action": "openExternally",
+            //     "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+            //     "uriFormat": "%s/scalar"
+            // },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
             },

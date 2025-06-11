@@ -53,7 +53,8 @@ builder.Services.AddMassTransit(x =>
     });
 });
 
-// Add services to the container.
+builder.Services.AddControllers();
+
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
@@ -73,53 +74,36 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+// var summaries = new[]
+// {
+//     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+// };
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-});
+// app.MapGet("/cart/{cartId:int}", async (int cartId, ICartService cartService) =>
+// {
+//     var cartDto = await cartService.GetCartAsync(cartId);
+//     if (cartService == null)
+//     {
+//         return Results.NotFound();
+//     }
+//     return Results.Ok(cartDto);
+// });
 
-app.MapGet("/cart/{cartId:int}", async (int cartId, ICartService cartService) =>
-{
-    var cartDto = await cartService.GetCartAsync(cartId);
-    if (cartService == null)
-    {
-        return Results.NotFound();
-    }
-    return Results.Ok(cartDto);
-});
+// app.MapPost("/cart", async ([FromBody] CartDto cartDto, ICartService cart) =>
+// {
+//     var (rowsAffected, cartId) = await cart.SaveCartAsync(cartDto);
+//     return rowsAffected > 0
+//         ? Results.Ok(DataSavedResponse.CreateSuccess("Cart saved successfully.", rowsAffected, cartId))
+//         : Results.BadRequest(DataSavedResponse.CreateFailure("Failed to save cart."));
+// });
 
-app.MapPost("/cart", async ([FromBody] CartDto cartDto, ICartService cart) =>
-{
-    var (rowsAffected, cartId) = await cart.SaveCartAsync(cartDto);
-    return rowsAffected > 0
-        ? Results.Ok(DataSavedResponse.CreateSuccess("Cart saved successfully.", rowsAffected, cartId))
-        : Results.BadRequest(DataSavedResponse.CreateFailure("Failed to save cart."));
-});
-
-app.MapPut("/cart/{cartId:int}/order", async ([FromRoute] int cartId,
-    ICartService cartService, ICartMessenger messenger) =>
-{
-    var cart = await cartService.GetCartAsync(cartId);
-    await messenger.SendCartToSalesOrderAsync(cart);
-    return Results.Ok();
-});
-
+// app.MapPut("/cart/{cartId:int}/order", async ([FromRoute] int cartId,
+//     ICartService cartService, ICartMessenger messenger) =>
+// {
+//     var cart = await cartService.GetCartAsync(cartId);
+//     await messenger.SendCartToSalesOrderAsync(cart);
+//     return Results.Ok();
+// });
+app.UseAuthorization();
+app.MapControllers();
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
